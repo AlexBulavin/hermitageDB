@@ -1,0 +1,71 @@
+Tаблица 1
+;;;;;;;;;;;;;
+1. Пространство;;;;;2. Post codes;;;;;3. Address street;;;
+;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
+space_ID;Int, auto increment;2;Primary key;;post_code_ID;Int, auto increment;2;Primary key;;address_street_ID;Int, auto increment;2;Primary key
+address_post_code;Int;2;Почтовый индекс;;address_post_code_value;Int;2;Почтовый индекс;;address_street_value;Text;50;Название улицы
+address_street_ID;Int;2;Название улицы;;;;;;;;;;
+Этаж;Int;2;ID типа этажа;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+4.Этажи_типы;;;;;5.;;;;;6.;;;
+;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
+floor_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+floor_type;Text;15;Описание типа этажа: подвал, полуподвал, первый, второй, третий, мансарда, чердак, вентиляционный этаж;;;Int;2;Почтовый индекс;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+7. ;;;;;8. ;;;;;9. ;;;
+;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
+_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+;;2;;;;;2;;;;;2;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+10;;;;;11.;;;;;12.;;;
+;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
+_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+;;2;;;;Int;2;Почтовый индекс;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+13.;;;;;14.;;;;;15.;;;
+;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
+_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+;;2;;;;;2;;;;;2;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+16;;;;;17;;;;;18;;;
+;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
+_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+;;2;;;;Int;2;Почтовый индекс;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+19;;;;;20;;;;;21;;;
+;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
+_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+;;2;;;;Int;2;Почтовый индекс;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+22;;;;;23;;;;;24;;;
+;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
+_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+;;2;;;;;2;;;;;2;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+25;;;;;26;;;;;27;;;
+;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
+_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+;;2;;;;Int;2;Почтовый индекс;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+;;;;;;;;;;;;;
+28;;;;;29;;;;;30;;;
+;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
+_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+;;2;;;;Int;2;Почтовый индекс;;;;;
