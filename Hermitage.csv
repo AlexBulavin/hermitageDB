@@ -10,10 +10,12 @@ space_type;Int;2;Идентификатор типа аудитории;;;;;;;;;
 ;;;;;;;;;;;;;
 4.Этажи_типы;;;;;5. Тип аудитории;;;;;6. Экспозиционные места в аудитории;;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
-floor_ID;Int, auto increment;2;Primary key;;space_type_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
-floor_type;Text;15;Описание типа этажа: подвал, полуподвал, первый, второй, третий, мансарда, чердак, вентиляционный этаж;;space_type_descriptor;text;55;Типы аудиторий: Зал, Коридор, Кладовка, Чулан, Серверная и т.д.;;;;;
+floor_ID;Int, auto increment;2;Primary key;;space_type_ID;Int, auto increment;2;Primary key;;exposition_in_auditory_ID;Int, auto increment;2;Primary key
+floor_type;Text;15;Описание типа этажа: подвал, полуподвал, первый, второй, третий, мансарда, чердак, вентиляционный этаж;;space_type_descriptor;text;55;Типы аудиторий: Зал, Коридор, Кладовка, Чулан, Серверная и т.д.;;wall_ID;Int, auto increment;2;Foreign key
+;;;;;;;;;;ceiling_ID;Int, auto increment;2;Foreign  key
+;;;;;;;;;;floor_ID;Int, auto increment;2;Foreign  key
 ;;;;;;;;;;;;;
-7. Экспозиционные места Стены;;;;;7. Экспозиционные места потолки;;;;;7. Экспозиционные места пол; ;;
+7. Экспозиционные места Стены;;;;;8. Экспозиционные места потолки;;;;;9. Экспозиционные места пол; ;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
 wall_ID;Int, auto increment;2;Primary key;;ceiling_ID;Int, auto increment;2;Primary key;;floor_ID;Int, auto increment;2;Primary key
 horizontal_grids;int;2;Разметка стены по горизонтали;;x_grids;int;2;Разметка потолка по оси X;;x_grids;int;2;Разметка пола по оси X
