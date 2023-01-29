@@ -1,71 +1,93 @@
-Tаблица 1
 ;;;;;;;;;;;;;
 1. Пространство;;;;;2. Post codes;;;;;3. Address street;;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
 space_ID;Int, auto increment;2;Primary key;;post_code_ID;Int, auto increment;2;Primary key;;address_street_ID;Int, auto increment;2;Primary key
 address_post_code;Int;2;Почтовый индекс;;address_post_code_value;Int;2;Почтовый индекс;;address_street_value;Text;50;Название улицы
 address_street_ID;Int;2;Название улицы;;;;;;;;;;
-Этаж;Int;2;ID типа этажа;;;;;;;;;;
+floor_ID;Int;2;ID типа этажа;;;;;;;;;;
+space_floor_text_ID;Text;55;Идентификатор аудитории. Например Каминный зал, Янтарная комната, Тронный зал, комната 51;;;;;;;;;;
+space_type;Int;2;Идентификатор типа аудитории;;;;;;;;;;
 ;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-4.Этажи_типы;;;;;5.;;;;;6.;;;
+4.Этажи_типы;;;;;5. Тип аудитории;;;;;6. Экспозиционные места в аудитории;;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
-floor_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
-floor_type;Text;15;Описание типа этажа: подвал, полуподвал, первый, второй, третий, мансарда, чердак, вентиляционный этаж;;;Int;2;Почтовый индекс;;;;;
+floor_ID;Int, auto increment;2;Primary key;;space_type_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+floor_type;Text;15;Описание типа этажа: подвал, полуподвал, первый, второй, третий, мансарда, чердак, вентиляционный этаж;;space_type_descriptor;text;55;Типы аудиторий: Зал, Коридор, Кладовка, Чулан, Серверная и т.д.;;;;;
 ;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-7. ;;;;;8. ;;;;;9. ;;;
+7. Экспозиционные места Стены;;;;;7. Экспозиционные места потолки;;;;;7. Экспозиционные места пол; ;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
-_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
-;;2;;;;;2;;;;;2;
+wall_ID;Int, auto increment;2;Primary key;;ceiling_ID;Int, auto increment;2;Primary key;;floor_ID;Int, auto increment;2;Primary key
+horizontal_grids;int;2;Разметка стены по горизонтали;;x_grids;int;2;Разметка потолка по оси X;;x_grids;int;2;Разметка пола по оси X
+vertical_grids;int;2;Разметка стены по вертикали;;Y_grids;int;2;Разметка потолка по оси Y;;Y_grids;int;2;Разметка пола по оси Y
+Inner_wall_ID;int;2;Номер внутренней стены/перегородки;;;;;;;;;;
 ;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-10;;;;;11.;;;;;12.;;;
+10  Экспозиционные места  витрина ;;;;;11 Экспозиционные места  ярусы на витрине;;;;;12. Экспозиционные места позиция на ярусе;;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
-_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
-;;2;;;;Int;2;Почтовый индекс;;;;;
+exhibit_place_ID;Int, auto increment;2;Primary key;;exihbit_level_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
+exhibit_place_type;Text;50;Описание типа витрины: стекло над столом, многоярусная витрина - комод, шкаф со остеклением ростовой и так далее;;exihbit_level_descriptor;text;50;Идентификатор уровня снизу вверх: базовый, первый, второй, второй А, второй Б и так далее;;x_grids;int;2;Разметка полки по оси X
+;;;;;;;;;;Y_grids;int;2;Разметка полки по оси Y
 ;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-13.;;;;;14.;;;;;15.;;;
+13. Тип описания экспоната;;;;;14. Экспонат консолидированная таблица;;;;;15. Подтаблица Предмет;;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
-_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
-;;2;;;;;2;;;;;2;
+item_type_ID;Int, auto increment;2;Primary key;;item_supertable_ID;Int, auto increment;2;Primary key;;suptable_item_ID;Int, auto increment;2;Primary key
+item_type_descriptor;Text;50;Описание типа экспоната: графика, живопись, оружие, предметы археологии, предметы истории техники, предметы нумизматики, предметы прикладного искусства, быта и этнографии, редкие книги, скульптура…;;item_supertable_descriptor_ID;Text;20;Название подтаблицы: предмет, история, описание, состав, учёт, изучение, экспозиция, изображение, госкаталог;;item_inventory_number;int;4;Уникальный инвентарный номер предмета
+;;;;;;;;;;fond_subtable_ID;int;2;Foreign key
+;;;;;;;;;;storage_subtable_ID;int;2;Foreign key
+;;;;;;;;;;item_type_ID;int;2;Foreign key
+;;;;;;;;;;sverka_subtable_ID;int;2;Foreign key
+;;;;;;;;;;Year;DateYear;1;Год проведения сверки: 1917, … 2001, 2002… 2023 …
+;;;;;;;;;;Comment;Text;25;Комментарий к сверке
+;;;;;;;;;;8nk_view_subtable_ID;int;2;Foreign key
+;;;;;;;;;;items_stored_amount;int;2;Количество единиц хранения
+;;;;;;;;;;items_subnumber_amount;int;2;Кол-во №№ (см. скриншот)
+;;;;;;;;;;qr_inventory_number_img;Bin;15K;Изображение QR кода инвентарного номера
+;;;;;;;;;;item_img_id;Text;80;Идентификатор базового изображения предмета. Для извлечения изображения с сервера необходимо добавить этот номер к базовому URL. Например: https://kamis.ru/upload/medialibrary/9d4/080f0418a5337d33d2faaca74e635bbe.png где 080f0418a5337d33d2faaca74e635bbe - item_img_id
+;;;;;;;;;;complectation;Text;150;Описание комплекта предмета. Например, бусы керамические 20 шт. На пеньковой веревке
+;;;;;;;;;;collection_number;int;4;Номер коллекции
+;;;;;;;;;;collection_type_ID;int;4;Foreign key
+;;;;;;;;;;pdf_file_with_collection_description;int;4;Идентификатор pdf файла. Для извлечения файла с сервера необходимо добавить этот номер к базовому URL. Например:https://kamis.ru/upload/medialibrary/9d4/080f0418a5337d33d2faaca74e635bbe.pdf где 080f0418a5337d33d2faaca74e635bbe - pdf_file_with_collection_description
+;;;;;;;;;;calalog_item_name;Text;150;Название предмета для каталога
+;;;;;;;;;;ethnic_item_name;Text;150;Этническое название для каталога
+;;;;;;;;;;alternative_item_name;Text;150;Другое название
+;;;;;;;;;;incoming_item_name;Text;150;Название предмета при поступлении
+;;;;;;;;;;previous_item_name;Text;150;Название предмета до последней перерегистрации
+;;;;;;;;;;geo_mfctr_location;int;4;"Foreign key  Место изготовления (геогр. локализация)"
+;;;;;;;;;;admin_geo_mfctr_location;int;4;"Foreign key  Административная локализация место изготовления (геогр. локализация)"
+;;;;;;;;;;organization_mfr;int;4;"Foreign  key Организация - изготовитель"
+;;;;;;;;;;mfr_era_ID;int;4;Эпоха изготовления
+;;;;;;;;;;mfr_year_min;int;4;Год изготовления нижняя граница
+;;;;;;;;;;mfr_year_max;int;4;Год изготовления верхняя граница
+;;;;;;;;;;item_location;int;4;Идентификатор расположения объекта
+;;;;;;;;;;item_image_ID;Int;2;Foreign  key
+;;;;;;;;;;item_video_ID;Int;2;Foreign  key
 ;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-16;;;;;17;;;;;18;;;
+16  Подтаблица Фонд;;;;;17 Подтаблица Хранение;;;;;18  Подтаблица Сверка;;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
-_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
-;;2;;;;Int;2;Почтовый индекс;;;;;
+fond_subtable_ID;Int, auto increment;2;Primary key;;storage_subtable_ID;Int, auto increment;2;Primary key;;sverka_subtable_ID;Int, auto increment;2;Primary key
+fond_suptable_descriptor;Text;25;Описание фонда хранения: Индокитай, Сибирь, Якутия, Поволжье …;;storage_subtable_descriptor;Text;25;Описание фонда хранения: основной фонд, резервный фонд, реставрируемый фонд, гастрольный фонд …;;sverka_subtable_descriptor;Text;25;Описание типа сверки: Ежегодная, Региональная, Федеральная …
 ;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-19;;;;;20;;;;;21;;;
+19  Подтаблица  Вид по форме 8 нк;;;;;20 Подтаблица Тип коллекции;;;;;21 Подтаблица Место изготовления геогр. Локализация ;;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
-_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
-;;2;;;;Int;2;Почтовый индекс;;;;;
+8nk_view_subtable_ID;Int, auto increment;2;Primary key;;collection_type_ID;Int, auto increment;2;Primary key;;geo_mfctr_location_ID;Int, auto increment;2;Primary key
+8nk_view_subtable_descriptor;Text;50;Описание вида по форме 8 нк;;collection_type_descriptor;Text;80;Описание типа коллекции: рыболовные орудия, домашняя утварь, элемент одежды …;;geo_mfctr_location_descriptor;Text;150;"Место изготовления (геогр. локализация): Индокитай, Юго-Восточная Азия; Северная Африка; Австралия…"
 ;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-22;;;;;23;;;;;24;;;
+22 Подтаблица Место изготовления адм. локализация ;;;;;23  Авторы;;;;;24 Авторские направления творчества;;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
-_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
-;;2;;;;;2;;;;;2;
+admin_geo_mfctr_location_ID;Int, auto increment;2;Primary key;;author_ID;Int, auto increment;2;Primary key;;author_creativity_directions_ID;Int, auto increment;2;Primary key
+admin_geo_mfctr_location_descriptor;Text;150;Место изготовления адм. локализация): Индия, Таиланд, Марокко…;;author_first_name_ru;Text;25;Имя автора или изготовителя RU;;author_ID;Int, auto increment;2;Foreign  key
+;;;;;author_last_name_ru;Text;25;Фамилия автора или изготовителя RU;;author_creativity_directions_descriptor;int;2;
+;;;;;author_middle_name_ru;Text;25;Отчество автора или изготовителя RU;;;;;
+;;;;;author_first_name_origin;Text;25;Оригинальное имя автора или изготовителя;;;;;
+;;;;;author_last_name_origin;Text;25;Оригинальная фамилия автора или изготовителя;;;;;
+;;;;;author_middle_name_origin;Text;25;Оригинальное отчество автора или изготовителя;;;;;
+;;;;;author_creativity_directions_ID;Int, auto increment;2;Foreign  key;;;;;
 ;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-25;;;;;26;;;;;27;;;
+25 Организация -изготовитель;;;;;26 Название эпохи производства/создания;;;;;27 Направления живописи;;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
-_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
-;;2;;;;Int;2;Почтовый индекс;;;;;
+organization_mfr_ID;Int, auto increment;2;Primary key;;mfr_era_ID;Int, auto increment;2;Primary key;;art_ID;Int, auto increment;2;Primary key
+organization_mfr_name_ru;Text;50;Организация - изготовитель RU;;mfr_era_descriptor;Text;80;Название эпохи производства/создания;;art_descriptor;Text;80;Название направления живописи
+organization_mfr_name_original;Text;50;Организация - изготовитель оригинальное наименование;;;;;;;;;;
 ;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-28;;;;;29;;;;;30;;;
+28  Направления скульптуры;;;;;29 Имиджи предмета;;;;;30 Видео предмета;;;
 ;Data type;Data size;Description;;;Data type;Data size;Description;;;Data type;Data size;Description
-_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key;;_ID;Int, auto increment;2;Primary key
-;;2;;;;Int;2;Почтовый индекс;;;;;
+sculpture_ID;Int, auto increment;2;Primary key;;item_image_ID;Int, auto increment;2;Primary key;;item_video_ID;Int, auto increment;2;Primary key
+sculpture_descriptor;Text;80;Название направления скульптуры;;item_pictures_links;Text;200;Ссылка на url адрес изображения предмета;;item_video_links;Text;200;Ссылка на url адрес изображения предмета
